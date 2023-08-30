@@ -1,6 +1,7 @@
 *.ndjson.gz
 *.csv
 *.db
+*.docx
 /report.md
 
 *.gem

@@ -130,17 +130,17 @@ end
 def build_table_headers(table)
   headers = ['', 'Journeys']
 
-  headers = [*headers, 'IdV successes', 'IdV success rate'] if table[:include_idv_success] != false
+  headers = [*headers, 'IdV', 'IdV %'] if table[:include_idv_success] != false
 
   if table[:include_doc_capture]
     headers = [
       *headers,
-      'Doc capture attempts', 'Doc capture attempt rate', 'Doc capture successes', 'Doc capture success rate'
+      'Doc capture attempts', 'Doc capture attempt %', 'Doc capture success', 'Doc capture success %'
     ]
   end
 
-  headers = [*headers, 'Gpo pending', 'Gpo pending rate'] if table[:include_gpo] != false
-  headers = [*headers, 'Ipp pending', 'Ipp pending rate'] if table[:include_ipp] != false
+  headers = [*headers, 'GPO', 'GPO %'] if table[:include_gpo] != false
+  headers = [*headers, 'IPP', 'IPP %'] if table[:include_ipp] != false
 
   headers << 'Rate' if table[:include_bucket_rate]
 
@@ -225,7 +225,7 @@ tables = {
     show_success_rate_diff: false,
     labels: {
       document_capture_success: {
-        0 => 'did not make it to and pass doc capture',
+        0 => 'did not pass doc capture',
         1 => 'passed doc capture'
       }
     }
