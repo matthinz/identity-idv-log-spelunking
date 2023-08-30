@@ -1,3 +1,8 @@
+*.ndjson.gz
+*.csv
+*.db
+/report.md
+
 *.gem
 *.rbc
 /.config
